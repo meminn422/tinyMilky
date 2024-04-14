@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { View, TouchableOpacity, Text, Modal, StyleSheet, TextInput, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Keyboard } from 'react-native';
-import { GluestackUIProvider, VStack } from '@gluestack-ui/themed';
+import { GluestackUIProvider, HStack, VStack } from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const AddButton = ({ }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible1, setModalVisible1] = useState(false);
   const [inputValue1, setInxputValue1] = useState('');
   const [inputValue2, setInxputValue2] = useState('');
   const [inputValue3, setInxputValue3] = useState('');
@@ -65,21 +67,24 @@ const AddButton = ({ }) => {
                   value={inputValue3}
                   onChangeText={text => setInxputValue3(text)}
                 />
+                <MaterialCommunityIcons name="star-face" size={20} color="#3C1D03" style={[styles.icon, {right:0}]} />
+
               </View>
               <View style={styles.inputContainer0}>
-                <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
-
+                <View style={[{flexDirection:'row'}]}> 
+                  <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
+                  <TextInput
+                    style={styles.input}
+                    placeholder="其他備註："
+                    placeholderTextColor="#A9A9A9"
+                    editable={false} // 禁止用戶編輯
+                  />
+                </View>
                 <TextInput
                   style={styles.input}
-                  placeholder="其他備註："
-                  placeholderTextColor="#A9A9A9"
-                  editable={false} // 禁止用戶編輯
-                />
-                <TextInput
-                  style={styles.input}
-                  placeholder="..."
-                  multiline={true} // 允许多行输入
-                  numberOfLines={4} // 设置为希望显示的行数
+                  placeholder=" . . ."
+                  // multiline={true} // 允许多行输入
+                  // numberOfLines={4} // 设置为希望显示的行数
                   placeholderTextColor="#A9A9A9"
                   value={inputValue0}
                   returnKeyType="done" // 设置键盘上的按钮为"完成"
@@ -163,7 +168,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   inputContainer0: {
-    flexDirection: 'row', // 水平排列
+    flexDirection: 'column', // 水平排列
     width: 280, // 調整寬度
     height: 210,
     borderWidth: 1, // 添加邊框
@@ -197,13 +202,12 @@ const styles = StyleSheet.create({
     // backgroundColor: 'white',
     // borderWidth: 1,
     // borderRadius: 4,
-    // 
 
   },
   button: {
     position: 'absolute',
-    bottom: 130, // 距離底部的距離
-    right: 32, // 距離右邊的距離
+    bottom: 25, // 距離底部的距離
+    right: 25, // 距離右邊的距離
     backgroundColor: '#6E8A92', // 圓形按鈕的顏色
 
     borderRadius: 60, // 設置邊框半徑為按鈕寬度和高度的一半，使按鈕成為圓形
