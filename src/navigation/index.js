@@ -27,7 +27,7 @@ const Navigation = () => {
 const MyTabs = () => {
     return (
         <Tab.Navigator
-            initialRouteName="HomeStack"
+            initialRouteName="Home"
             screenOptions={{
                 tabBarActiveTintColor: "#E99443",
                 tabBarInactiveTintColor: "#D9D9D9",
