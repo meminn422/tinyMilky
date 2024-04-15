@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, Modal, StyleSheet, TextInput, ImageBackground } from 'react-native';
+import { View, TouchableOpacity, Text, Modal, StyleSheet, TextInput, Image, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Keyboard } from 'react-native';
 import { GluestackUIProvider, HStack, VStack } from '@gluestack-ui/themed';
@@ -13,7 +13,7 @@ const AddButton = ({ }) => {
   const [inputValue2, setInxputValue2] = useState('');
   const [inputValue3, setInxputValue3] = useState('');
   const [inputValue0, setInxputValue0] = useState('');
-
+ 
   return (
     <>
       <TouchableOpacity
@@ -35,6 +35,7 @@ const AddButton = ({ }) => {
               }}
             />
             <View style={styles.modalContent}>
+              <MaterialCommunityIcons name="star-face" size={80} color="#E99443" style={styles.topIconContainer} />
               <View style={styles.inputContainer}>
                 <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
                 <Text style={styles.staticText}>食物名稱：</Text>
@@ -67,7 +68,28 @@ const AddButton = ({ }) => {
                   value={inputValue3}
                   onChangeText={text => setInxputValue3(text)}
                 />
-                <MaterialCommunityIcons name="star-face" size={20} color="#3C1D03" style={[styles.icon, {right:0}]} />
+{/* 建議頁面*/}
+                <View>
+                  <TouchableOpacity onPress={() => setModalVisible1(true)}>
+                    <MaterialCommunityIcons name="star-face" size={20} color="#E99443" style={[styles.icon, {right:0}]} />
+                  </TouchableOpacity>
+                  <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={modalVisible1}
+                  onRequestClose={() => setModalVisible1(false)}> 
+
+                  <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}} >
+                    <View style={{  justifyContent: 'center', alignItems: 'center'}}>
+                      {/* 在這裡插入你的圖片 */}
+                      <TouchableOpacity onPress={() => setModalVisible1(false)} style={styles.closeButton}>
+                        <MaterialCommunityIcons name="close" size={24} color="black" />
+                      </TouchableOpacity>
+                      <Image source={require('../images/Advice.png')}  />
+                    </View>
+                  </View>
+                  </Modal>
+                </View>
 
               </View>
               <View style={styles.inputContainer0}>
@@ -81,7 +103,7 @@ const AddButton = ({ }) => {
                   />
                 </View>
                 <TextInput
-                  style={styles.input}
+                  style={styles.input0}
                   placeholder=" . . ."
                   // multiline={true} // 允许多行输入
                   // numberOfLines={4} // 设置为希望显示的行数
@@ -114,6 +136,18 @@ const AddButton = ({ }) => {
 };
 
 const styles = StyleSheet.create({
+  topIconContainer: {
+    alignItems: 'center',
+    position: 'absolute',
+    top: -45,
+    zIndex: 999, // 確保icon在最上層
+  },
+  closeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 999, // 確保關閉按鈕在最上層
+  },
   overlay: {
     ...StyleSheet.absoluteFillObject,
     backgroundColor: 'rgba(0, 0, 0, 0.5)', // 半透明背景
@@ -147,7 +181,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 40, // 修改 padding
     width: '85%', // 修改 width
-    height: '80%', // 修改 height
+    height: '75%', // 修改 height
   },
   modalText: {
     fontWeight: 'bold',
@@ -182,6 +216,7 @@ const styles = StyleSheet.create({
   },
   input0: {
     fontSize: 16, // 文本大小
+    marginTop:10,
   },
   staticText: {
     marginRight: 10, // 添加一些間距
