@@ -35,7 +35,7 @@ const AddButton = ({ }) => {
               }}
             />
             <View style={styles.modalContent}>
-              <View style={[styles.inputContainer, { marginTop: 60 }]}>
+              <View style={styles.inputContainer}>
                 <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
                 <Text style={styles.staticText}>食物名稱：</Text>
                 <TextInput
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 40, // 修改 padding
     width: '85%', // 修改 width
-    height: '70%', // 修改 height
+    height: '80%', // 修改 height
   },
   modalText: {
     fontWeight: 'bold',

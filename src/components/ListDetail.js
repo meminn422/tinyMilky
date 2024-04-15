@@ -25,11 +25,12 @@ const ListDetail = () => {
 };
 const styles = StyleSheet.create({
     contentContainer: {
-        paddingLeft: 20
+        alignItems:'center',
     },
     CardContainer: {
         flexDirection: 'row',
-        width: 340,
+        width:'85%',
+
         height: 50,
         backgroundColor: "#001B24",
         marginTop: 20,
