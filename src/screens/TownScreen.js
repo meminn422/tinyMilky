@@ -1,6 +1,6 @@
 import React from "react-native";
 import { ScrollView, Text, StyleSheet, View, Image } from "react-native";
-import AddButtom from "../components/AddButtom";
+import NewAdd from "../components/newAdd";
 
 const TownScreen = () => {
     return (
@@ -10,21 +10,22 @@ const TownScreen = () => {
                 style={styles.image}
                 resizeMode="cover"
             />
-            <AddButtom />
+            <NewAdd />
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
+      flex: 1,
+    //   position: 'relative', // 確保子組件可以使用絕對定位
     },
     image: {
-        width: '100%',
-        height: '100%',
+      width: '100%',
+      height: '100%',
+      position: 'absolute', // 確保圖片填滿整個容器
     },
-});
+  
+  });
 
 export default TownScreen;
