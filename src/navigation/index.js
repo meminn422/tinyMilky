@@ -28,7 +28,7 @@ const MyTabs = () => {
                 tabBarStyle: {
                     backgroundColor: "#12485B",
                     position: 'absolute',
-                    bottom: 50,
+                    bottom: 40,
                     borderRadius: 10,
                     marginHorizontal: 30,
                 },
