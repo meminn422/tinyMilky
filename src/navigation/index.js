@@ -31,6 +31,7 @@ const MyTabs = () => {
                     bottom: 40,
                     borderRadius: 10,
                     marginHorizontal: 30,
+                    height: 55,
                 },
                 tabBarLabelStyle: {
                     //fontFamily: "Irish Grover",
