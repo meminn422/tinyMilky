@@ -1,8 +1,6 @@
 import React from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Pressable, useState } from 'react-native';
 
 import ListScreen from '../screens/ListScreen';
 import TownScreen from '../screens/TownScreen';
@@ -10,10 +8,6 @@ import LightScreen from '../screens/LightScreen';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// import active_bookmark from "../image/icon_bookmark_actived.png";
-// import inactive_bookmark from "../image/icon_bookmark.png";
-
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
@@ -32,11 +26,11 @@ const MyTabs = () => {
                 tabBarActiveTintColor: "#E99443",
                 tabBarInactiveTintColor: "#D9D9D9",
                 tabBarStyle: {
-                    backgroundColor: "#8D8884",
-                    height: 60,
-                    //marginBottom: 30, //大問題:多餘的白邊無法處理
-                    //marginHorizontal: 10,
-                    //borderRadius: 10,
+                    backgroundColor: "#12485B",
+                    position: 'absolute',
+                    bottom: 50,
+                    borderRadius: 10,
+                    marginHorizontal: 30,
                 },
                 tabBarLabelStyle: {
                     //fontFamily: "Irish Grover",
@@ -51,7 +45,7 @@ const MyTabs = () => {
                     title: "LIGHT",
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="star-four-points" color={color} size={35} />
+                        <MaterialCommunityIcons name="star-four-points" color={color} size={30} />
                     ),
                 }} />
 
@@ -62,7 +56,7 @@ const MyTabs = () => {
                     title: "HOME",
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="lighthouse" color={color} size={35} />
+                        <MaterialCommunityIcons name="lighthouse" color={color} size={30} />
                     )
                 }} />
 
@@ -73,16 +67,8 @@ const MyTabs = () => {
                     title: "LIST",
                     headerShown: false,
                     tabBarIcon: ({ color }) => (
-                        <MaterialCommunityIcons name="format-list-checkbox" color={color} size={35} />
+                        <MaterialCommunityIcons name="format-list-checkbox" color={color} size={30} />
                     ),
-                    // headerLeft: () => ( //list返回主頁紐
-                    //     <Pressable onPress={() => navigation.goBack()}>
-                    //         <MaterialCommunityIcons
-                    //             name={'chevron-left'}
-                    //             size={24}
-                    //         />
-                    //     </Pressable>
-                    // )  
                 }} />
         </Tab.Navigator>
     );
