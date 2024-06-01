@@ -20,10 +20,7 @@ const TownScreen = () => {
         style={styles.image}
         resizeMode="cover"
       />
-
-      <TouchableOpacity style={styles.triggerArea} onPress={handlePress}>
-        {/* 這裡是你的觸發區域 */}
-      </TouchableOpacity>
+      <TouchableOpacity style={styles.triggerArea} onPress={handlePress}/>
       <TurnOn visible={modalVisible} onClose={handleCloseModal} />
     </View>
   );
@@ -40,14 +37,14 @@ const styles = StyleSheet.create({
   },
   triggerArea: {
     position: 'absolute',
-    top: '50%',
-    right: '25%', // 調整右側偏移量以使其位於中間偏右位置
-    width: 50, // 調整寬度和高度以使其成為一個可點擊的區域
+    top: '48%',
+    right: '38%', 
+    width: 50, 
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: 'rgba(255, 255, 255, 0.5)',
-    borderRadius: 25, // 讓它成為一個圓形
+    borderRadius: 25, 
   },
 });
 

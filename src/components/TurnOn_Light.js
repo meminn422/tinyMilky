@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Modal, Image, TouchableOpacity, Animated } from 'react-native';
 
 const TurnOn = ({ visible, onClose }) => {
-  const [count, setCount] = useState(0); // 初始值设为0
+  const [count, setCount] = useState(0); 
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {

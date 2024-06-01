@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Animated, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import FoodEntryModal from './FoodEntryModal';
 
-const NewAdd=()=>{
-    const [isExpanded, setIsExpanded] = useState(false);
+const NewAdd = () => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const [rotation] = useState(new Animated.Value(0));
   const [buttonOpacity] = useState(new Animated.Value(0));
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
   const toggleExpand = () => {
     if (isExpanded) {
@@ -47,17 +49,21 @@ const NewAdd=()=>{
     transform: [{ rotate: rotationInterpolate }],
   };
 
+  const handlePencilPress = () => {
+    setIsModalVisible(true);
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.buttonsContainer}>
         {isExpanded && (
           <>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity,right: 10, bottom: 80  }]}>
-              <TouchableOpacity style={styles.iconButton}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 80 }]}>
+              <TouchableOpacity style={styles.iconButton} onPress={handlePencilPress}>
                 <Ionicons name="pencil-outline" size={24} color="#fff" />
               </TouchableOpacity>
             </Animated.View>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity,right: 10, bottom: 60  }]}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 60 }]}>
               <TouchableOpacity style={styles.iconButton}>
                 <Ionicons name="scan-outline" size={24} color="#fff" />
               </TouchableOpacity>
@@ -70,6 +76,7 @@ const NewAdd=()=>{
           <Ionicons name="add" size={24} color="#fff" />
         </Animated.View>
       </TouchableOpacity>
+      <FoodEntryModal visible={isModalVisible} onClose={() => setIsModalVisible(false)} />
     </View>
   );
 };
@@ -79,14 +86,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end', // 將容器的內容向底部對齊
     alignItems: 'flex-end', // 將容器的內容向右側對齊
     flex: 1,
-    zIndex: 999, 
+    zIndex: 999,
     marginBottom: 80,
   },
   buttonsContainer: {
     position: 'relative',
     bottom: 20,
-    right: 25, 
-
+    right: 25,
   },
   button: {
     // marginBottom: 10,
@@ -100,9 +106,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    
   },
-  
   mainButton: {
     backgroundColor: '#6E8A92',
     width: 60,
@@ -110,8 +114,8 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
-    right:30,
-    bottom:30,
+    right: 30,
+    bottom: 30,
   },
 });
 
