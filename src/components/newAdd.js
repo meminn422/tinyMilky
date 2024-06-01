@@ -58,12 +58,12 @@ const NewAdd = () => {
       <View style={styles.buttonsContainer}>
         {isExpanded && (
           <>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 80 }]}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 50 }]}>
               <TouchableOpacity style={styles.iconButton} onPress={handlePencilPress}>
                 <Ionicons name="pencil-outline" size={24} color="#fff" />
               </TouchableOpacity>
             </Animated.View>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 60 }]}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 30 }]}>
               <TouchableOpacity style={styles.iconButton}>
                 <Ionicons name="scan-outline" size={24} color="#fff" />
               </TouchableOpacity>
@@ -106,9 +106,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
-
   mainButton: {
     backgroundColor: '#6E8A92',
     width: 60,
