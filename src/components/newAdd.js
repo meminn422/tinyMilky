@@ -52,12 +52,12 @@ const NewAdd=()=>{
       <View style={styles.buttonsContainer}>
         {isExpanded && (
           <>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity,right: 10, bottom: 100  }]}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity,right: 10, bottom: 80  }]}>
               <TouchableOpacity style={styles.iconButton}>
                 <Ionicons name="pencil-outline" size={24} color="#fff" />
               </TouchableOpacity>
             </Animated.View>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity,right: 10, bottom: 90  }]}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity,right: 10, bottom: 60  }]}>
               <TouchableOpacity style={styles.iconButton}>
                 <Ionicons name="scan-outline" size={24} color="#fff" />
               </TouchableOpacity>
@@ -80,9 +80,10 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end', // 將容器的內容向右側對齊
     flex: 1,
     zIndex: 999, 
+    marginBottom: 80,
   },
   buttonsContainer: {
-    position: 'absolute',
+    position: 'relative',
     bottom: 20,
     right: 25, 
 

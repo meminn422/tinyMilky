@@ -5,9 +5,10 @@ import Navigation from './src/navigation';
 const App = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <Navigation />
+      <Navigation style={{margintop: 20}}/>
     </SafeAreaView>
   );
 };
+
 
 export default App;

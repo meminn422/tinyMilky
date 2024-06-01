@@ -10,7 +10,7 @@ const TownScreen = () => {
                 style={styles.image}
                 resizeMode="cover"
             />
-            <NewAdd />
+            <NewAdd/>
         </View>
     );
 };
@@ -29,3 +29,4 @@ const styles = StyleSheet.create({
   });
 
 export default TownScreen;
+

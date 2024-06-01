@@ -9,10 +9,10 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const AddButton = ({ }) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalVisible1, setModalVisible1] = useState(false);
-  const [inputValue1, setInxputValue1] = useState('');
-  const [inputValue2, setInxputValue2] = useState('');
-  const [inputValue3, setInxputValue3] = useState('');
-  const [inputValue0, setInxputValue0] = useState('');
+  const [inputValue1, setInputValue1] = useState('');
+  const [inputValue2, setInputValue2] = useState('');
+  const [inputValue3, setInputValue3] = useState('');
+  const [inputValue0, setInputValue0] = useState('');
  
   return (
     <>
@@ -44,7 +44,7 @@ const AddButton = ({ }) => {
                   placeholder="請輸入食物"
                   placeholderTextColor="#A9A9A9"
                   value={inputValue1}
-                  onChangeText={text => setInxputValue1(text)}
+                  onChangeText={text => setInputValue1(text)}
                 />
               </View>
               <View style={styles.inputContainer}>
@@ -55,7 +55,7 @@ const AddButton = ({ }) => {
                   placeholder="請輸入日期"
                   placeholderTextColor="#A9A9A9"
                   value={inputValue2}
-                  onChangeText={text => setInxputValue2(text)}
+                  onChangeText={text => setInputValue2(text)}
                 />
               </View>
               <View style={styles.inputContainer}>
@@ -66,7 +66,7 @@ const AddButton = ({ }) => {
                   placeholder="請輸入日期"
                   placeholderTextColor="#A9A9A9"
                   value={inputValue3}
-                  onChangeText={text => setInxputValue3(text)}
+                  onChangeText={text => setInputValue3(text)}
                 />
 {/* 建議頁面*/}
                 <View>
@@ -110,7 +110,7 @@ const AddButton = ({ }) => {
                   placeholderTextColor="#A9A9A9"
                   value={inputValue0}
                   returnKeyType="done" // 设置键盘上的按钮为"完成"
-                  onChangeText={text => setInxputValue0(text)}
+                  onChangeText={text => setInputValue0(text)}
                 />
               </View>
               <View style={styles.buttonContainer}>
