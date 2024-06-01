@@ -13,6 +13,17 @@ const TownScreen = () => {
       <NewAdd style={{ marginbottom: 30 }} />
     </View>
   );
+
+  return (
+    <View style={styles.container}>
+      <Image
+        source={require('../images/Homepage.png')}
+        style={styles.image}
+        resizeMode="cover"
+      />
+      <NewAdd />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -29,3 +40,4 @@ const styles = StyleSheet.create({
 });
 
 export default TownScreen;
+
