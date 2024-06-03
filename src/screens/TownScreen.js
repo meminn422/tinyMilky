@@ -10,6 +10,13 @@ const TownScreen = () => {
                 style={styles.image}
                 resizeMode="cover"
             />
+            <View style={styles.header}>
+              <Image
+                source={require('../images/ore.png')} // 更換為你的圖片路徑
+                style={styles.headerImage}
+              />
+              <Text style={styles.headerText}>36</Text>
+            </View>
             <NewAdd/>
         </View>
     );
@@ -25,7 +32,23 @@ const styles = StyleSheet.create({
       height: '100%',
       position: 'absolute', // 確保圖片填滿整個容器
     },
-  
+    header: {
+      position: 'absolute',
+      top: 25,
+      right: 25,
+      flexDirection: 'row',
+      alignItems: 'center',
+      zIndex:999,
+    },
+    headerImage: {
+      width: 30,
+      height: 30,
+      marginRight: 3,
+    },
+    headerText: {
+      fontSize: 18,
+      color: '#fff',
+    },
   });
 
 export default TownScreen;

@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, Modal, Image, TouchableOpacity, Animated } from 'react-native';
 
 const TurnOn = ({ visible, onClose }) => {
-  const [count, setCount] = useState(0); 
+  const [count, setCount] = useState(0);
   const opacity = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const TurnOn = ({ visible, onClose }) => {
         useNativeDriver: true,
       }).start();
     }
+
   }, [visible]);
 
   return (
@@ -28,7 +29,9 @@ const TurnOn = ({ visible, onClose }) => {
       onRequestClose={onClose}
     >
       <View style={styles.modalContainer}>
+
         <Animated.View style={[styles.modalContent, { opacity }]}>
+
           <Image
             source={require('../images/question.png')}
             style={styles.image}
@@ -90,9 +93,9 @@ const styles = StyleSheet.create({
     position: 'relative',
   },
   image: {
-    width: '80%', 
+    width: '80%',
     height: '80%',
-    borderRadius: 10, 
+    borderRadius: 10,
   },
   inputContainer: {
     flexDirection: 'row',
@@ -101,7 +104,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: '70%',
     transform: [{ translateY: -50 }],
-    
+
   },
   number: {
     fontSize: 24,
@@ -110,9 +113,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   icon: {
-    width: 20, 
+    width: 20,
     height: 30,
-    
+
   },
   buttonContainer: {
     marginHorizontal: 10,
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
   actionButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '60%',
+    width: '50%',
     position: 'absolute',
     bottom: '10%',
   },
