@@ -2,9 +2,12 @@ import React, { useState ,useEffect } from 'react';
 import { Keyboard } from 'react-native';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Modal ,Image} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const FoodEntryModal = ({ visible, onClose }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible1, setModalVisible1] = useState(false);
+
   const [inputValue0, setInputValue0] = useState('');
   const [inputValue1, setInputValue1] = useState('');
   const [inputValue2, setInputValue2] = useState('');
@@ -34,20 +37,8 @@ const FoodEntryModal = ({ visible, onClose }) => {
                 setModalVisible(false); // 关闭 Modal
               }}
             />
+
         <View style={styles.modalView}>
-          <View style={styles.inputContainer}>
-            <View style={styles.iconContainer}>
-              <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
-              <Text style={styles.inputLabel}>EXP:</Text>
-            </View>
-            <TextInput 
-              style={styles.input} 
-              placeholder="2025/2/30" 
-              placeholderTextColor="#000"
-              value={inputValue0}
-              onChangeText={text => setInputValue0(text)}
-            />
-          </View>
           <View style={styles.inputContainer}>
             <View style={styles.iconContainer}>
               <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
@@ -61,6 +52,39 @@ const FoodEntryModal = ({ visible, onClose }) => {
               onChangeText={text => setInputValue1(text)}
               />
           </View>
+          <View style={styles.inputContainer}>
+            <View style={[styles.iconContainer]}>
+              <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
+              <Text style={styles.inputLabel}>EXP:</Text>
+              <View>
+                <TouchableOpacity onPress={() => setModalVisible1(true)}>
+                      <MaterialCommunityIcons name="star-face" size={20} color="#E99443" style={[styles.icon, {right:0}]} />
+                </TouchableOpacity>
+                <Modal
+                    animationType="fade"
+                    transparent={true}
+                    visible={modalVisible1}
+                    onRequestClose={() => setModalVisible1(false)}> 
+                    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center'}} >
+                      <View style={{  justifyContent: 'center', alignItems: 'center'}}>
+                        <TouchableOpacity onPress={() => setModalVisible1(false)} style={styles.closeButton}>
+                          <MaterialCommunityIcons name="close" size={24} color="black" />
+                        </TouchableOpacity>
+                        <Image source={require('../images/advice_.png')}  />
+                      </View>
+                    </View>
+                  </Modal>
+              </View>
+            </View>
+            <TextInput 
+              style={styles.input} 
+              placeholder="YYYY/MM/DD" 
+              placeholderTextColor="#000"
+              value={inputValue0}
+              onChangeText={text => setInputValue0(text)}
+            />
+          </View>
+          
           <View style={styles.inputContainer}>
             <View style={styles.iconContainer}>
               <Icon name="star" size={20} color="#3C1D03" style={styles.icon} />
@@ -112,6 +136,12 @@ const FoodEntryModal = ({ visible, onClose }) => {
 };
 
 const styles = StyleSheet.create({
+  closeButton: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    zIndex: 999, // 確保關閉按鈕在最上層
+  },
   modalContainer: {
     flex: 1,
     justifyContent: 'center',
