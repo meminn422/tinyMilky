@@ -1,5 +1,5 @@
 import React from 'react';
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = { counterValue: 0 };
 

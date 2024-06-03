@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 const ListDetail = () => {
     const [PressState1, setPressState1] = useState(false);
     const [PressState2, setPressState2] = useState(false);
+
     let checkbtm = PressState1 ? <MaterialCommunityIcons name={'check-circle'} size={20} color={'#001B24'} />
         : <MaterialCommunityIcons name={'checkbox-blank-circle-outline'} size={20} color={'#fff'} />;
     let checkbtm2 = PressState2 ? <MaterialCommunityIcons name={'check-circle'} size={20} color={'#001B24'} />
