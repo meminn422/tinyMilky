@@ -1,22 +1,27 @@
-import React from 'react-native';
+import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import ListScreen from '../screens/ListScreen';
 import TownScreen from '../screens/TownScreen';
 import LightScreen from '../screens/LightScreen';
-
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import ScanScreen from '../screens/ScanScreen';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 
 const Navigation = () => {
     return (
         <NavigationContainer>
-            <MyTabs />
+            <Stack.Navigator initialRouteName="Back">
+                <Stack.Screen name="Back" component={MyTabs} options={{ headerShown: false }} />
+                <Stack.Screen name="ScanScreen" component={ScanScreen} options={{ title: 'ScanScreen' }} />
+            </Stack.Navigator>
         </NavigationContainer>
     );
-}
+};
 
 const MyTabs = () => {
     return (
@@ -34,7 +39,6 @@ const MyTabs = () => {
                     height: 55,
                 },
                 tabBarLabelStyle: {
-                    //fontFamily: "Irish Grover",
                     fontWeight: '800',
                     fontSize: 12,
                 },
@@ -49,7 +53,6 @@ const MyTabs = () => {
                         <MaterialCommunityIcons name="star-four-points" color={color} size={30} />
                     ),
                 }} />
-
             <Tab.Screen
                 name="Home"
                 component={TownScreen}
@@ -60,7 +63,6 @@ const MyTabs = () => {
                         <MaterialCommunityIcons name="lighthouse" color={color} size={30} />
                     )
                 }} />
-
             <Tab.Screen
                 name="List"
                 component={ListScreen}
@@ -73,7 +75,6 @@ const MyTabs = () => {
                 }} />
         </Tab.Navigator>
     );
-}
-
+};
 
 export default Navigation;
