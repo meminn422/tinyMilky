@@ -1,12 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import fooddataSlice from './fooddataSliceSlice';
+import fooddataSlice from './fooddataSlice';
 
 const store = configureStore({
     reducer: {
-        food: fooddataSlice,
+        foodinfo: fooddataSlice,
     }
 });
-
 
 
 export default store;

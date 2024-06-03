@@ -6,7 +6,7 @@ const initialState = {
         foodname: "",
         exp: "",
         buydate: "",
-        check: false,
+        note: "",
     }
 };
 

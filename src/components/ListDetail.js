@@ -3,14 +3,18 @@ import { ScrollView, Text, StyleSheet, View, Image } from "react-native";
 import { useState } from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import { useSelector } from "react-redux";
+
 const ListDetail = () => {
     const [PressState1, setPressState1] = useState(false);
     const [PressState2, setPressState2] = useState(false);
-
     let checkbtm = PressState1 ? <MaterialCommunityIcons name={'check-circle'} size={20} color={'#001B24'} />
         : <MaterialCommunityIcons name={'checkbox-blank-circle-outline'} size={20} color={'#fff'} />;
     let checkbtm2 = PressState2 ? <MaterialCommunityIcons name={'check-circle'} size={20} color={'#001B24'} />
         : <MaterialCommunityIcons name={'checkbox-blank-circle-outline'} size={20} color={'#fff'} />;
+
+    const state = useSelector(state => state.foodinfo)
+
     return (
         <ScrollView contentContainerStyle={styles.contentContainer}>
             <Text style={styles.date}>2024.4.14—————————————————————————</Text>
@@ -48,12 +52,12 @@ const ListDetail = () => {
                                 source={require('../images/IMG_02001.jpg')}
                                 style={styles.image}
                             />
-                            <Text style={styles.itemTitle}>Milk</Text>
+                            <Text style={styles.itemTitle}>{state.info.foodname}</Text>
                         </View>
                         <View style={styles.date_note}>
-                            <Text style={styles.dataText}>ADD DATE: </Text>
-                            <Text style={styles.dataText}>EXP:2024.4.21</Text>
-                            <Text style={styles.dataText}>NOTE: </Text>
+                            <Text style={styles.dataText}>ADD DATE:{state.info.buydate}</Text>
+                            <Text style={styles.dataText}>EXP:{state.info.exp}</Text>
+                            <Text style={styles.dataText}>NOTE:{state.info.note}</Text>
                         </View>
                     </View>
                     <View style={styles.btnArea}>

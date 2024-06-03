@@ -2,8 +2,14 @@ import React, { useState } from 'react';
 import { View, TouchableOpacity, Animated, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import FoodEntryModal from './FoodEntryModal';
+import { useNavigation } from '@react-navigation/native';
 
 const NewAdd = () => {
+  const navigation = useNavigation(); // 获取导航对象
+
+  const handleScanPress = () => {
+    navigation.navigate('ScanScreen'); // 触发导航到 ScanScreen 的动作
+  };
   const [isExpanded, setIsExpanded] = useState(false);
   const [rotation] = useState(new Animated.Value(0));
   const [buttonOpacity] = useState(new Animated.Value(0));
@@ -58,13 +64,13 @@ const NewAdd = () => {
       <View style={styles.buttonsContainer}>
         {isExpanded && (
           <>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 80 }]}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 50 }]}>
               <TouchableOpacity style={styles.iconButton} onPress={handlePencilPress}>
                 <Ionicons name="pencil-outline" size={24} color="#fff" />
               </TouchableOpacity>
             </Animated.View>
-            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 60 }]}>
-              <TouchableOpacity style={styles.iconButton}>
+            <Animated.View style={[styles.button, { opacity: buttonOpacity, right: 10, bottom: 30 }]}>
+              <TouchableOpacity style={styles.iconButton} onPress={handleScanPress}>
                 <Ionicons name="scan-outline" size={24} color="#fff" />
               </TouchableOpacity>
             </Animated.View>
@@ -106,9 +112,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-
   },
-
   mainButton: {
     backgroundColor: '#6E8A92',
     width: 60,
