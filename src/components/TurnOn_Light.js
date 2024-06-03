@@ -12,15 +12,16 @@ const TurnOn = ({ visible, onClose }) => {
         duration: 300,
         useNativeDriver: true,
       }).start();
-    } else {
+    } else  {
       Animated.timing(opacity, {
         toValue: 0,
         duration: 300,
         useNativeDriver: true,
       }).start();
     }
-  }, [visible]);
 
+  }, [visible]);
+  
   return (
     <Modal
       transparent={true}
@@ -28,7 +29,9 @@ const TurnOn = ({ visible, onClose }) => {
       onRequestClose={onClose}
     >
       <View style={styles.modalContainer}>
+
         <Animated.View style={[styles.modalContent, { opacity }]}>
+          
           <Image
             source={require('../images/question.png')}
             style={styles.image}
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
   actionButtonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '60%',
+    width: '50%',
     position: 'absolute',
     bottom: '10%',
   },

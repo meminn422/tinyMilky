@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, TouchableOpacity, Text } from 'react-native';
 import TurnOn from '../components/TurnOn_Light'; // 根據實際路徑調整
 
 const TownScreen = () => {
@@ -15,6 +15,13 @@ const TownScreen = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.header}>
+        <Image
+          source={require('../images/ore.png')} // 更換為你的圖片路徑
+          style={styles.headerImage}
+        />
+        <Text style={styles.headerText}>36</Text>
+      </View>
       <Image
         source={require('../images/default_bg.png')}
         style={styles.image}
@@ -29,6 +36,23 @@ const TownScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  header: {
+    position: 'absolute',
+    top: 25,
+    right: 25,
+    flexDirection: 'row',
+    alignItems: 'center',
+    zIndex:999,
+  },
+  headerImage: {
+    width: 30,
+    height: 30,
+    marginRight: 3,
+  },
+  headerText: {
+    fontSize: 18,
+    color: '#fff',
   },
   image: {
     width: '100%',
@@ -49,4 +73,3 @@ const styles = StyleSheet.create({
 });
 
 export default TownScreen;
-
